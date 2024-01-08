@@ -24,7 +24,7 @@ class Child(Data):
 
 
 Human = make_dataclass(
-    "Human", [("age", int, 20)], bases=(Data,), namespace={"get age": lambda self: self.age}
+    "Human", [("age", int, 20)], bases=(Data,), namespace={"get_age": lambda self: self.age}
 )
 
 a = Data("a", 14000)
@@ -33,5 +33,7 @@ print(a.sell)
 print(a)
 c = Human('Nikita', 50000)
 print(c)
+print(c.get_age())
 f = Child('Egor', 12000)
 print(f)
+
