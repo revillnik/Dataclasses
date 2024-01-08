@@ -20,6 +20,5 @@ class Data:
 
 a = Data("a", 14000)
 a.area.append(10)
-a.sell = False
 print(a.sell)
 print(a)
