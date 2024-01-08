@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field, InitVar
+from dataclasses import dataclass, field, InitVar, make_dataclass
 
 
 @dataclass(eq=True, order=True)
@@ -15,11 +15,23 @@ class Data:
     def __post_init__(self):
         if self.sell:
             self.allprice = self.price * 0.9
-    
 
 
+@dataclass
+class Child(Data):
+    price: int = 50000
+    photo: str = 'no'
+
+
+Human = make_dataclass(
+    "Human", [("age", int, 20)], bases=(Data,), namespace={"get age": lambda self: self.age}
+)
 
 a = Data("a", 14000)
 a.area.append(10)
 print(a.sell)
 print(a)
+c = Human('Nikita', 50000)
+print(c)
+f = Child('Egor', 12000)
+print(f)
