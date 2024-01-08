@@ -15,6 +15,7 @@ class Data:
     def __post_init__(self):
         if self.sell:
             self.allprice = self.price * 0.9
+    
 
 
 
